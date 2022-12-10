@@ -9,7 +9,7 @@ on:
         main
 
 jobs:
-  publish-npm:
+  publish-gpr:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,18 +19,6 @@ jobs:
           registry-url: https://npm.pkg.github.com/@numberguessinggame
           scope: '@numberguessinggame'
       - run: npm install
-      - run: npm test
-      - name: Publish to GitHub Packages
-        uses: actions/npm@v1
-        with:
-          publish: true
-          publish-access: public
-          publish-path: ./dist
-          publish-registry: https://npm.pkg.github.com/@numberguessinggame
-          publish-scope: '@numberguessinggame'
-          token: ${{secrets.GITHUB_TOKEN}}
+      - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
- 
-
