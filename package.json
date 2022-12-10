@@ -5,7 +5,7 @@
   "main": "index.js",
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com/@numberguessinggame"
+    "registry": "https://npm.pkg.github.com/"
   },
   "type": "module",
   "bin": "./index.js",
