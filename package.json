@@ -1,11 +1,11 @@
 {
-  "name": "abdullah_number_guess",
+  "name": "numberguessinggame",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "publishConfig": {
     "access": "public",
-    "registry": "https://npm.pkg.github.com/@Number_Guessing_Game"
+    "registry": "https://npm.pkg.github.com/@numberguessinggame"
   },
   "type": "module",
   "bin": "./index.js",
