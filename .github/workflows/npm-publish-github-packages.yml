@@ -21,7 +21,6 @@ jobs:
           registry-url: https://registry.npmjs.org/
           scope: '@numberguessinggame'
       - run: npm install
-      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
