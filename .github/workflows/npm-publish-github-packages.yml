@@ -4,27 +4,33 @@
 name: Node.js Package
 
 on:
-  release:
-    types: [created] 
-     push:
-      branches: [ master ]
+  push:
+    branches:
+        main
 
-
-  
 jobs:
-  build:
+  publish-npm:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
+          node-version: 16
+          registry-url: https://npm.pkg.github.com/@numberguessinggame
+          scope: '@numberguessinggame'
       - run: npm install
-      - run: npm run build --if-present
-      - run: npm publish
+      - run: npm test
+      - name: Publish to GitHub Packages
+        uses: actions/npm@v1
+        with:
+          publish: true
+          publish-access: public
+          publish-path: ./dist
+          publish-registry: https://npm.pkg.github.com/@numberguessinggame
+          publish-scope: '@numberguessinggame'
+          token: ${{secrets.GITHUB_TOKEN}}
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-
+ 
 
